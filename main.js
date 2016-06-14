@@ -15,7 +15,7 @@ canvas.onclick = function(event) {
     y: event.y,
     // Horizontal velocity = random between -5 and 5
     vx: Math.random() * 10 - 5,
-    // Vertical velocity = random between -10 and 5 (shot upwards more often)
+    // Vertical velocity = random between -10 and 5 (shoot upwards more often)
     vy: Math.random() * 15 - 10,
     // Radius = random between 2 and 10
     radius: Math.random() * 8 + 2,
@@ -42,45 +42,11 @@ function draw() {
   dots.forEach(function(dot) {
     dot.draw(ctx);
 
-    // Update velocity due to gravity
-    dot.vy += gravity;
+    dot.updateVelocity(gravity);
 
-    // Update the position of the dot
-    dot.y += dot.vy;
-    dot.x += dot.vx;
-
-    // Check if the dot is at the bottom of the canvas, calculate rebound
-    if (dot.y + dot.radius > canvas.height) {
-      // Position the dot just on top of the bottom of the canvas
-      dot.y = canvas.height - dot.radius;
-
-      // The y velocity changes direction and is weaker than before
-      dot.vy *= -dot.bounce;
-      // Friction slows down the dot on the x axis
-      dot.vx *= dot.friction;
-    }
+    dot.verticalBounce(canvas.height);
   });
 }
 
 // Update the canvas 60 times per second
 setInterval(draw, 1000 / 60);
-
-function Dot(attr) {
-  if (!attr) attr = {};
-  this.x = attr.x || 0;
-  this.y = attr.y || 0;
-  this.vx = attr.vx || 1;
-  this.vy = attr.vy || 0;
-  this.radius = attr.radius || 5;
-  this.bounce = attr.bounce || 0.75;
-  this.friction = attr.friction || 0.99;
-  this.color = attr.color || 'grey';
-}
-
-Dot.prototype.draw = function(ctx) {
-  ctx.beginPath();
-  ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-  ctx.fillStyle = this.color;
-  ctx.fill();
-  ctx.closePath();
-};
