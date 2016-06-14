@@ -7,6 +7,7 @@
 
   var gravity = 0.2;
   var dots = [];
+  var dotLimit = 1000;
 
   canvas.onclick = addDot;
 
@@ -43,6 +44,9 @@
     };
 
     dots.push(new Dot(attr));
+
+    // Remove the oldest dot if the limit is reached
+    if(dots.length > dotLimit) dots.shift();
   }
 
   /**
