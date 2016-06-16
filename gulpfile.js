@@ -11,6 +11,7 @@ var del = require('del');
 var runSequence = require('run-sequence');
 var inject = require('gulp-inject');
 var debug = require('gulp-debug');
+var karma = require('karma');
 
 /// Config
 var dist = './dist/';
@@ -55,6 +56,14 @@ gulp.task('clean', function() {
 
 // Builds the project, ready for distribution
 gulp.task('build', ['html']);
+
+// Runs tests
+gulp.task('test', function (done) {
+  new karma.Server({
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: true
+  }, done).start();
+});
 
 // Cleans de distribution folder and builds the project
 gulp.task('default', function() {
