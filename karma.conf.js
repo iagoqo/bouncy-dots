@@ -7,9 +7,11 @@ module.exports = function(config) {
     browsers: ['PhantomJS'],
     frameworks: ['jasmine'],
     files: [
-      'src/**/*.js',
-      'src/**/!(main).js',
-      'test/**/*.spec.js'
+      'test/**/*.spec.js',
+      'src/**/*.js'
+    ],
+    exclude : [
+      'src/**/main.js'
     ]
   });
 };

@@ -22,6 +22,7 @@ Before you can run gulp tasks you need to install the required Node.js packages.
 
 ### Tasks
 
-- `gulp build`: minifies the project and stores it in the *dist* directory.
+- `gulp test`: run unit tests
+- `gulp build`: minifies the project and stores it in the *dist* directory
 - `gulp clean`: cleans the *dist* directory
 - `gulp (default)`: gulp clean + gulp build
