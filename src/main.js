@@ -5,9 +5,9 @@
 
   console.log(canvas, ctx);
 
-  var gravity = 0.2;
+  var gravity = 0.25  ;
   var dots = [];
-  var dotLimit = 1000;
+  var dotLimit = 500;
 
   canvas.onclick = addDot;
 
@@ -29,12 +29,12 @@
       // Starting point = click point
       x: event.x,
       y: event.y,
-      // Horizontal velocity = random between -10 and 10
-      vx: Math.random() * 20 - 10,
-      // Vertical velocity = random between -15 and 5 (shoot upwards more often)
-      vy: Math.random() * 20 - 15,
-      // Radius = random between 2 and 20
-      radius: Math.random() * 18 + 2,
+      // Horizontal velocity = random between -20 and 20
+      vx: Math.random() * 40 - 20,
+      // Vertical velocity = random between -30 and 10 (shoot upwards more often)
+      vy: Math.random() * 40 - 30,
+      // Radius = random between 2 and 50
+      radius: Math.random() * 48 + 2,
       // Bounce = random between 0.05 and 0.9
       bounce: Math.random() * 0.4 + 0.5,
       // Friction = random between 0.95 and 0.99
