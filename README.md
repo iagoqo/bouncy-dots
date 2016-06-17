@@ -29,4 +29,4 @@ Before you can run gulp tasks you need to install the required Node.js packages.
 
 
 ## Live demo
-[bit.ly/bouncy-dots]()
+[bit.ly/bouncy-dots](http://bit.ly/bouncy-dots)
