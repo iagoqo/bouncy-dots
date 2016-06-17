@@ -26,3 +26,7 @@ Before you can run gulp tasks you need to install the required Node.js packages.
 - `gulp build`: minifies the project and stores it in the *dist* directory
 - `gulp clean`: cleans the *dist* directory
 - `gulp (default)`: gulp clean + gulp build
+
+
+## Live demo
+[bit.ly/bouncy-dots]()
